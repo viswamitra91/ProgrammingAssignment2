@@ -12,7 +12,7 @@ set <- function(y)
         
 }
 get <- function() x
-setinverse <- function(inverse) i <- inverse
+setinverse <- function(inverse) i <<- inverse
 getinverse <- function() i
 list( set = set, get = get, setinverse = setinverse, getinverse = getinverse)
 }
@@ -28,8 +28,8 @@ if(!is.null(i))
     message("Getting your cached data...")
     return(i)
 }
-data <- x$get()
-i <- solve(data, ...)
+data_matrix <- x$get()
+i <- solve(data_matrix, ...)
 x$setinverse(i)
-i
+return(i)
 }
